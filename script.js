@@ -13,7 +13,7 @@ noBtn.addEventListener("mouseover", () => {
 
 /* Yes button */
 yesBtn.addEventListener("click", () => {
-  message.textContent = "YAY!! 💘🥰 I knew you'd say yes, Bubee!";
+  message.textContent = "YAY!! 💘🥰 I LOVE YOU MY BUBEE, SEE YOU IN GERMANY!";
   playMusic();
   startHearts();
 });
