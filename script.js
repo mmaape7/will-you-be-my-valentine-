@@ -1,13 +1,45 @@
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 const message = document.getElementById("message");
+const heartsContainer = document.querySelector(".hearts");
+const music = document.getElementById("bgMusic");
 
+/* No button runs away */
 noBtn.addEventListener("mouseover", () => {
   const x = Math.random() * 200 - 100;
   const y = Math.random() * 200 - 100;
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
 });
 
+/* Yes button */
 yesBtn.addEventListener("click", () => {
-  message.textContent = "YAY!! 💘🥰 LOVEYOU KAAYO MY BUBEE SEE YOU IN GERMANY!!";
+  message.textContent = "YAY!! 💘🥰 I knew you'd say yes, Bubee!";
+  playMusic();
+  startHearts();
 });
+
+/* Music (plays only after click to satisfy browser rules) */
+function playMusic() {
+  music.volume = 0.6;
+  document.getElementById("musicPlayer").src += "&autoplay=1";
+}
+
+/* Hearts animation */
+function startHearts() {
+  setInterval(createHeart, 300);
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💖";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+
+  heartsContainer.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
